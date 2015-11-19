@@ -57,6 +57,10 @@ def _update_task_status(context, data):
 
     Returns the content of the response.
     """
+    if config['ckan.site_url_internal']:
+        api_url = urlparse.urljoin(config['ckan.site_url_internal'], 'api/action')
+    else:
+        api_url = urlparse.urljoin(config['ckan.site_url'], 'api/action')
     #api_url = urlparse.urljoin(config['ckan.site_url'], 'api/action')
     api_url = urlparse.urljoin(config['ckan.site_url_internal'], 'api/action')
     res = requests.post(
