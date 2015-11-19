@@ -57,7 +57,8 @@ def _update_task_status(context, data):
 
     Returns the content of the response.
     """
-    api_url = urlparse.urljoin(context['site_url'], 'api/action')
+    #api_url = urlparse.urljoin(config['ckan.site_url'], 'api/action')
+    api_url = urlparse.urljoin(config['ckan.site_url_internal'], 'api/action')
     res = requests.post(
         api_url + '/task_status_update', json.dumps(data),
         headers={'Authorization': context['apikey'],

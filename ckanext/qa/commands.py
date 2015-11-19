@@ -118,7 +118,8 @@ class QACommand(p.toolkit.CkanCommand):
         If no packages are declared in self.args, then retrieve all the
         packages from the catalogue.
         """
-        api_url = urlparse.urljoin(config['ckan.site_url'], 'api/action')
+        #api_url = urlparse.urljoin(config['ckan.site_url'], 'api/action')
+        api_url = urlparse.urljoin(config['ckan.site_url_internal'], 'api/action')
         if len(self.args) > 1:
             for id in self.args[1:]:
                 data = {'id': unicode(id)}
